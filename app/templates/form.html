@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <section>                
+                    <form  id="form" method="POST" role="form" name="form">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="age" class="form-label">age</label>
+                            <input type="number" class="form-control" name="age" id="age" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">test</label>
+                            <input type="text" class="form-control" name="test" id="test" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">B2B_price</label>
+                            <input type="number" class="form-control" name="B2B_price" id="B2B_price" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">status</label>
+                            <input type="text" class="form-control" name="status" id="status" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">B2C_price</label>
+                            <input type="number" class="form-control" name="B2C_price" id="B2C_price" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">B2C_Status</label>
+                            <input type="text" class="form-control" name="B2C_Status" id="B2C_Status" aria-describedby="emailHelp">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+               
+            </section>
+        </div>
+        <div class="col-sm-4"></div>
+    
+</div>
+</div>
+{% comment %} <script>
+    const form = document.querySelector('form');
+    const url = 'http://127.0.0.1:8000/post/';
+    
+    form.addEventListener('submit', (e) => {
+      e.preventDefault(); // prevent the default form submission behavior
+      
+      // get the input values
+      const name = form.elements['name'].value;
+      const age = form.elements['age'].value;
+      const test = form.elements['test'].value;
+      const b2b_price = form.elements['b2b_price'].value;
+      const status = form.elements['status'].value;
+      const b2c_price = form.elements['b2c_price'].value;
+      const b2c_status = form.elements['b2c_status'].value;
+      
+      // create the data object to send in the request body
+      const data = { name, age, test, b2b_price, status, b2c_price, b2c_status};
+      
+      // send the request using the Fetch API
+      fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Network response was not ok.');
+        }
+      })
+      .then(data => {
+        console.log(data); // log the response data to the console
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error);
+      });
+    });
+    
+</script> {% endcomment %}
+
+
+    <script src="{% static 'form.js' %}"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
